@@ -11,9 +11,13 @@ namespace _2kL_2023_02_09_AnimDblBfr
         private Random r = new();
         private int diam;
         private int x, y;
-
+        private int dx, dy;
+        
         public int X => x;
         public int Y => y;
+        public int Dx { get { return dx; } set {  dx = value; } }
+        public int Dy { get { return dy; } set {  dy = value; } }
+
         public int Diam => diam;
         public Color Color { get; set; }
 
@@ -33,10 +37,10 @@ namespace _2kL_2023_02_09_AnimDblBfr
             this.Color = Color.FromArgb(r.Next(255), r.Next(255), r.Next(255));
         }
 
-        public void Move(int dx, int dy)
+        public void Move()
         {
-            x += dx;
-            y += dy;
+            x += this.dx;
+            y += this.dy;
         }
 
         public void Paint(Graphics g)
